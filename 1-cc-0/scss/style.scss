@@ -1,0 +1,348 @@
+@font-face {
+    src: url(./fonts/savate-regular.otf);
+    font-family: "Savate";
+}
+
+@mixin medium { @media ( min-width: 768px ) { @content } }
+
+* {
+    box-sizing: border-box;
+    position: relative;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    *::selection {
+        background: transparent;
+    }
+}
+
+body {
+    font-family: 'Savate', sans-serif;
+    overflow: hidden;
+}
+
+a, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &__left, &__right {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        overflow: hidden;
+    }
+    &__right {
+        left: 50%;
+    }
+}
+
+.line {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: black;
+    height: 1px;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    $size: 38vmin;
+    font-size: $size;
+    .dash {
+        top: -.08em;
+        margin-right: .05em;
+    }
+    .zero:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: .1em;
+        height: .5em;
+        transform-origin: 50% 50%;
+        transform: translate( .28em, .2em ) rotate( 45deg );
+        background: black;
+    }
+}
+
+h2 {
+    font-size: 3.5vmin;
+}
+
+.cover { background-size: cover }
+.contain { background-size: contain }
+
+.center { transform: translate( -50%, -50% ) }
+.text-center { text-align: center }
+
+.x-100 { left: -100% }
+.x-60 { left: -60% }
+.x20 { left: 20% }
+.x40 { left: 40% }
+.x50 { left: 50% }
+.x100 { left: 100% }
+
+.y20 { top: 20%; }
+.y50 { top: 50%; }
+
+.w60 { width: 60% }
+.w100 { width: 100% }
+.w120 { width: 120% }
+.w200 { width: 200% }
+
+.w100vm { width: 100vmin; }
+.h100vm { height: 100vmin; }
+@include medium {
+    .md-w80vm { width: 80vmin; }
+    .md-h80vm { height: 80vmin; }
+}
+
+.h50 { height: 50% }
+.h60 { height: 60% }
+.h100 { height: 100% }
+
+// .centered {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     width: 100%;
+//     transform: translate(-50%, -50%);
+//     text-align: center;
+// }
+
+// .full-page {
+//     width: 100%;
+//     height: 100%;
+//     background-size: cover;
+// }
+
+// .spread-left {
+//     width: 200%;
+//     height: 100%;
+// }
+
+// .spread-right {
+//     width: 200%;
+//     height: 100%;
+//     left: -100%;
+// }
+
+// .framed {
+//     width: 60%;
+//     height: 60%;
+//     background-size: contain;
+// }
+
+// .image {
+    
+//     position: absolute;
+//     background-repeat: no-repeat;
+//     background-position: center center;
+    
+//     &_flip {
+//         transform: rotate(180deg);
+//         transform-origin: 50% 50%;
+//     }
+    
+//     &_full {
+//         background-size: cover;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//     }
+    
+//     &_full-left {
+//         background-size: cover;
+//         top: 0;
+//         left: 0;
+//         width: 200%;
+//         height: 100%;
+        
+//         &.image_flip {
+//             left: -100%;
+//         }
+        
+//     }
+    
+//     &_full-right {
+//         background-size: cover;
+//         top: 0;
+//         left: -100%;
+//         width: 200%;
+//         height: 100%;
+        
+//         &.image_flip {
+//             left: 0;
+//         }
+        
+//     }
+    
+//     &_frame {
+//         background-size: contain;
+//         top: 20%;
+//         left: 20%;
+//         width: 60%;
+//         height: 60%;
+//     }
+    
+//     &_frame-left{
+//         background-size: contain;
+//         top: 20%;
+//         height: 60%;
+//         left: 40%;
+//         width: 120%;
+//         &.image_flip {
+//             left: -60%;
+//         }
+//     }
+    
+//     &_frame-right {
+//         background-size: contain;
+//         top: 20%;
+//         height: 60%;
+//         left: -60%;
+//         width: 120%;
+//         &.image_flip {
+//             left: 40%;
+//         }
+//     }
+    
+//     &_bottom {
+//         top: 50%;
+//         left: 0;
+//         width: 100%;
+//         height: 50%;
+//         background-size: cover;
+//     }
+    
+//     &_top {
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 50%;
+//         background-size: cover;
+//     }
+    
+// }
+
+// .title {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     width: 100%;
+//     transform: translate(-50%, -50%);
+//     text-align: center;
+//     font-size: 3.5vmin;
+//     line-height: 1.5;
+//     pointer-events: none;
+//     white-space: nowrap;
+    
+//     &_main-left,
+//     &_main-right {
+        
+//         $size: 38vmin;
+        
+//         font-size: $size;
+        
+//         .dash {
+//             position: relative;
+//             top: -.08em;
+//             margin-right: .05em;
+//         }
+        
+//         .zero {
+//             position: relative;
+//             &:after {
+//                 content: '';
+//                 display: block;
+//                 position: absolute;
+//                 top: 0;
+//                 left: 0;
+//                 width: $size * .1;
+//                 height: $size * .5;
+//                 transform-origin: 50% 50%;
+//                 transform: translate( $size * .28, $size * .2 ) rotate( 45deg );
+//                 background: black;
+//             }
+//         }
+        
+//     }
+    
+//     &_main-left {
+//         left: 100%;
+//         width: 100vw;
+//     }
+    
+//     &_main-right {
+//         left: 0;
+//         width: 100vw;
+//     }
+// }
+
+// .text {
+    
+//     $padding: 1vmin;
+    
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: blue;
+//     padding: $padding;
+//     font-size: 4vmin;
+    
+//     &_colophon {
+//         background: black;
+//         color: #ececec;
+//         font-size: 2vmin;
+//         font-family: sans-serif;
+//         box-sizing: border-box;
+//         p {
+//             position: absolute;
+//             top: 33.33%;
+//             left: 50%;
+//             transform: translate(-50%,-50%);
+//         }
+//         img {
+//             position: absolute;
+//             bottom: $padding;
+//             left: $padding;
+//             width: calc(100% - #{ $padding * 2 });
+//         }
+//     }
+// }
+
+// .gyro-instructions {
+//     width: 100%;
+//     height: 100%;
+//     font-size: 40px;
+//     background: white;
+// }
